@@ -2,8 +2,8 @@
   "schema": 1,
   "courseId": 2084,
   "repository": "LearningOS/2026a-rustling-xuzhaotenfang",
-  "commit": "e8bcadb3dc4b06daeb0bdad96dd745b76240deab",
-  "score": 56,
+  "commit": "4a6a58ebe605a877bca41415c304e8d4bf0a7d2a",
+  "score": 58,
   "totalScore": 110,
   "exercises": [
     {
@@ -401,16 +401,16 @@
     {
       "name": "generics1",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "generics2",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "traits1",
@@ -778,9 +778,9 @@
     }
   ],
   "student": "xuzhaotenfang",
-  "runId": "35713548322",
+  "runId": "35724017972",
   "runAttempt": "1",
   "upload": {
-    "status": "accepted"
+    "status": "pending"
   }
 }
