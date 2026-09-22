@@ -9,6 +9,6 @@ fn main() {
     println!("The square of 3 is {}", answer);
 }
 
-fn square(num: i32) -> i32 {
+fn square(num: i32) -> i32 {// returns the square of the number passed in as an argument.
     num * num
 }
