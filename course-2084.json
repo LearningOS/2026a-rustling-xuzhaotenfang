@@ -2,7 +2,7 @@
   "schema": 1,
   "courseId": 2084,
   "repository": "LearningOS/2026a-rustling-xuzhaotenfang",
-  "commit": "e916e7143eaf3bcb57583dc824078024e7f88a53",
+  "commit": "e8bcadb3dc4b06daeb0bdad96dd745b76240deab",
   "score": 56,
   "totalScore": 110,
   "exercises": [
@@ -778,9 +778,9 @@
     }
   ],
   "student": "xuzhaotenfang",
-  "runId": "35713327275",
+  "runId": "35713548322",
   "runAttempt": "1",
   "upload": {
-    "status": "accepted"
+    "status": "pending"
   }
 }
