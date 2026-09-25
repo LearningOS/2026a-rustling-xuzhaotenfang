@@ -1,8 +1,3 @@
-/*
-	single linked list merge
-	This problem requires you to merge two ordered singly linked lists into one ordered singly linked list
-*/
-// I AM NOT DONE
 
 use std::fmt::{self, Display, Formatter};
 use std::ptr::NonNull;
@@ -69,15 +64,61 @@ impl<T> LinkedList<T> {
             },
         }
     }
-	pub fn merge(list_a:LinkedList<T>,list_b:LinkedList<T>) -> Self
-	{
-		//TODO
-		Self {
-            length: 0,
-            start: None,
-            end: None,
+	pub fn merge(mut list_a: LinkedList<T>, mut list_b: LinkedList<T>) -> Self
+    where
+        T: Ord,
+    {
+        let mut merged = LinkedList::new();
+        
+        let mut a = list_a.start.take();
+        let mut b = list_b.start.take();
+        
+        unsafe {
+            while a.is_some() && b.is_some() {
+                let a_ptr = a.unwrap();
+                let b_ptr = b.unwrap();
+                
+                if (*a_ptr.as_ptr()).val <= (*b_ptr.as_ptr()).val {
+                    // 摘下 a 节点
+                    a = (*a_ptr.as_ptr()).next;
+                    (*a_ptr.as_ptr()).next = None; 
+                    
+                    match merged.end {
+                        None => merged.start = Some(a_ptr),
+                        Some(end_ptr) => (*end_ptr.as_ptr()).next = Some(a_ptr),
+                    }
+                    merged.end = Some(a_ptr);
+                    merged.length += 1;
+                } else {
+                    b = (*b_ptr.as_ptr()).next;
+                    (*b_ptr.as_ptr()).next = None;
+                    
+                    match merged.end {
+                        None => merged.start = Some(b_ptr),
+                        Some(end_ptr) => (*end_ptr.as_ptr()).next = Some(b_ptr),
+                    }
+                    merged.end = Some(b_ptr);
+                    merged.length += 1;
+                }
+            }
+            
+            let mut rest = if a.is_some() { a } else { b };
+            while let Some(node_ptr) = rest {
+                let next = (*node_ptr.as_ptr()).next;
+                (*node_ptr.as_ptr()).next = None;
+                
+                match merged.end {
+                    None => merged.start = Some(node_ptr),
+                    Some(end_ptr) => (*end_ptr.as_ptr()).next = Some(node_ptr),
+                }
+                merged.end = Some(node_ptr);
+                merged.length += 1;
+                rest = next;
+            }
         }
-	}
+        
+        merged
+    }
 }
 
 impl<T> Display for LinkedList<T>
